@@ -22,6 +22,7 @@ const displayMessage = function (message) {
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
+  console.log(secretNumber);
 
   // When there is no input
   if (!guess) {
@@ -33,9 +34,10 @@ document.querySelector('.check').addEventListener('click', function () {
     // document.querySelector('.message').textContent = '🎉 Correct Number!';
     displayMessage('🎉 Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
-
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
+    // background: rgb(2,0,36);
+    // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(113,224,100,1) 0%, rgba(0,212,255,1) 100%);
+    document.querySelector('.container').style.background = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(113,224,100,1) 0%, rgba(0,212,255,1) 100%)';
+    document.querySelector('.number').style.background = 'linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1)';
 
     if (score > highscore) {
       highscore = score;
@@ -90,15 +92,16 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
+  document.querySelector('.number').style.background = '#fff';
+  document.querySelector('.container').style.background = 'radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%))';
 
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
+  // document.querySelector('.number').style.width = '15rem';
 });
 
 ///////////////////////////////////////
 // Coding Challenge #1
 
-/* 
+/*
 Implement a game rest functionality, so that the player can make a new guess! Here is how:
 
 1. Select the element with the 'again' class and attach a click event handler
